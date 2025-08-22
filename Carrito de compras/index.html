@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carrito de Compras</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Carrito de Compras</h1>
+    </header>
+
+    <main>
+        <section aria-labelledby="agregar-producto">
+            <h2 id="agregar-producto" style="display:none;">Agregar producto</h2>
+            <form id="formularioProducto" onsubmit="agregarProducto(event)">
+                <input name="product-name" type="text" id="productoInput" placeholder="Nombre del producto"
+                    autocomplete="off" aria-label="Nombre del producto" required>
+                <input name="product-quantity" type="number" id="producto-quantity" placeholder="Cantidad del producto"
+                    autocomplete="off" aria-label="Cantidad del producto" value="1" min="1" max="999" required>
+                <div class="btn-group">
+                    <button type="submit" class="btn-add">Agregar</button>
+                    <button type="button" class="btn-clear" onclick="limpiarCarrito()">Limpiar Carrito</button>
+                </div>
+            </form>
+        </section>
+
+        <section aria-labelledby="lista-productos">
+            <h2 id="lista-productos" style="display:none;">Lista de productos</h2>
+            <p class="contador" id="contador">Total: 0 productos</p>
+            <ul id="listaProductos">
+            </ul>
+        </section>
+    </main>
+
+    <template id="product-template">
+        <li class="product" data-id="">
+            <span class="product-name"></span>
+            <span class="product-quantity"></span>
+            <button type="button" class="btn-delete">
+                🗑️
+            </button>
+        </li>
+    </template>
+
+    <script src="script.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+</body>
+
+</html>
